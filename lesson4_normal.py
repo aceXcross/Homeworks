@@ -3,21 +3,16 @@
 # Первыми элементами ряда считать цифры 1 1
 
 def fibonacci(n, m):
-    fun1 = 1
-    fun2 = 1
-    i = 2
-    fibonacci_sum1 = 0
-    while i <= m:
-        fibonacci_sum = fun2 + fun1
-        fun1 = fun2
-        fun2 = fibonacci_sum
-        i += 1
-        if i == n-1:
-            fibonacci_sum1 = fibonacci_sum
+    fib_list = [1, 1]
 
-    return fibonacci_sum - fibonacci_sum1
+    for i in range(2, m):
+        new_element = fib_list[-1] + fib_list[-2]
+        fib_list.append(new_element)
+    return fib_list[n:m]
 
-print(fibonacci(12, 21))
+a = fibonacci(2, 5)
+for i in a:
+    print(i)
 
 # Задача-2:
 # Напишите функцию, сортирующую принимаемый список по возрастанию.
