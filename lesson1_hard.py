@@ -14,5 +14,11 @@ __author__ = 'Рублёв Вячеслав'
 
 # Подсказка: это значение точно есть ;)
 
-a = float("inf")
-print(a)
+import math
+
+a = math.inf
+
+print(a == a ** 2)
+print(a == a * 2)
+print(a > 999999)
+print('a =', a)
