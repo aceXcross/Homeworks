@@ -21,7 +21,7 @@ line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO'\
        'zTYwZAiRwycdlHfyHNGmkNqSwXUrxGc'
 
 import re
-str = ("mtMmEZUOmcq")
+i = ("mtMmEZUOmcq")
 lowerCase = re.findall("[a-z]+", str)
 print(lowerCase)
 
@@ -52,7 +52,7 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm'\
        'oiQzTYwZAiRwycdlHfyHNGmkNqSwXUrxGC'
 
 import re
-str = ("GAMkgAYEOmHBSQsSUHKvSfbmxULaysmNOGIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLec")
+i = ("GAMkgAYEOmHBSQsSUHKvSfbmxULaysmNOGIPHpEMujalpPLNzRWXfwHQqwksrFeipEUlTLec")
 HigherCase = re.findall("[a-z]{2}([A-Z]+)[A-Z]{2}", line_2)
 print(HigherCase)
 
@@ -63,19 +63,20 @@ print(HigherCase)
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
 
-import random
-import re
-with open('basic_element.txt', 'w', encoding='utf-8') as f:
-    n = [str(random.randint(0, 9)) for i in range(2499)]
+import random,re
+file = open('basic_element.txt', 'w', encoding='utf-8') as f:
+n = [str(random.randint(0, 9)) 
+for i in range(2499)]
     n = str(random.randint(1, 9)) + ''.join(n)
-    f.write(n)
+file.write(n)
 
-with open('basic_element.txt', 'r', encoding='utf-8') as f:
-    number = f.readline()
-    pattern = '([0]{2,}|[1]{2,}|[2]{2,}|[3]{2,}|[4]{2,}|' \
+file = open('basic_element.txt', 'r', encoding='utf-8') as f:
+number = file.readline()
+pattern = '([0]{2,}|[1]{2,}|[2]{2,}|[3]{2,}|[4]{2,}|' \
               '[5]{2,}|[6]{2,}|[7]{2,}|[8]{2,}|[9]{2,})'
-    sequence = re.findall(pattern, number)
-    print(sequence)
-    longest_sequence = []
-    [longest_sequence.insert(0, x) for x in sequence if len(x) > len(longest_sequence)]
-    print(longest_sequence[0])
+sequence = re.findall(pattern, number)
+print(sequence)
+longest_sequence = []
+[longest_sequence.insert(0, x) 
+for x in sequence if len(x) > len(longest_sequence)]
+print(longest_sequence[0])
